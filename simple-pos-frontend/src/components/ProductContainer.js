@@ -1,7 +1,11 @@
 import React from 'react';
-import Product from '../components/Product.js';
+import Product from '../components/Product';
 import Category from '../components/Category';
 import Ingredients from '../components/Ingredients';
+import Size from '../components/Size';
+import Allergies from '../components/Allergies';
+import Modifications from '../components/Modifications';
+
 
 const ProductContainer = () => {
 
@@ -13,6 +17,9 @@ const ProductContainer = () => {
                 <Category />
                 <Product />
                 <Ingredients />
+                <Size />
+                <Allergies />
+                <Modifications />
             </form>
 
             <button>Submit</button>
