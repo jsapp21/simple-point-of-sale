@@ -124,3 +124,7 @@ div {
   transform: rotate(45deg);
 }
 
+.ingredientsContainer {
+  display: flex;
+  flex-direction: column;
+}
