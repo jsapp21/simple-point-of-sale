@@ -5,7 +5,7 @@ const Size = () => {
     return (
         <div>
             
-            <label for="size">Size</label>
+            <label>Size</label>
             <input type="text" name="size"></input>
 
         </div>
