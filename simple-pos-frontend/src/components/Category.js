@@ -7,9 +7,9 @@ const Category = () => {
             
             <label>Category</label>
             <input type="text" name="name"></input>
-            <select>
+            {/* <select>
                 <option value="">testing</option>
-            </select>
+            </select> */}
         
         </div>
     );

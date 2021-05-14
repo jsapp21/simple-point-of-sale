@@ -1,10 +1,10 @@
-import ProductContainer from './components/ProductContainer.js';
+import ProductForm from './components/ProductForm';
 
 const App = () => {
 
   return (
     <div>
-      <ProductContainer />
+      <ProductForm />
     </div>
   );
 }

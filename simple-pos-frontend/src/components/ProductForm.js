@@ -1,13 +1,13 @@
 import React from 'react';
-import Product from '../components/Product';
-import Category from '../components/Category';
-import Ingredients from '../components/Ingredients';
-import Size from '../components/Size';
-import Allergies from '../components/Allergies';
-import Modifications from '../components/Modifications';
+import Product from './Product';
+import Category from './Category';
+import Ingredients from './Ingredients';
+import Size from './Size';
+import Allergies from './Allergies';
+import Modifications from './Modifications';
 
 
-const ProductContainer = () => {
+const ProductForm = () => {
 
     return (
         <div>
@@ -28,4 +28,4 @@ const ProductContainer = () => {
     );
 }
 
-export default ProductContainer;
+export default ProductForm;
