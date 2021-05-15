@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 const Ingredients = () => {
+    const newIngredient = { name: '' };
     let [ingredients, setIngredients] = useState([{ name: '' }])
 
     const handleChange = (i, e) => {
@@ -10,9 +11,7 @@ const Ingredients = () => {
     }
 
     const handleAdd = () => {
-        const ingredient = [...ingredients];
-        ingredient.push({ name: '' });
-        setIngredients(ingredient);
+        setIngredients([...ingredients, newIngredient]);
     }
 
     const handleRemove = (i) => {
@@ -21,12 +20,12 @@ const Ingredients = () => {
         setIngredients(ingredient);
     }
 
-    // console.log(ingredients)
+    console.log(ingredients)
     return (
         <div className="ingredientsContainer">
             
             <label>Ingredients</label>
-            <button type="button" onClick={() => handleAdd()}>Add Ingredient</button>
+            <button type="button" onClick={handleAdd}>Add Ingredient</button>
 
             {ingredients.map((ingredient, index) => {
                 return (

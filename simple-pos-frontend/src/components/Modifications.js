@@ -1,26 +1,17 @@
 import React, { useState } from 'react';
 
 const Modifications = () => {
-    let [mods, setMods] = useState([{ name: '', price: '' }])
+    const newMod = { name: '', price: '' };
+    let [mods, setMods] = useState([{...newMod}])
 
-    // const handleChange = (i, e) => {
-    //     // const mod = [...mods];
-    //     // mod[i].name = e.target.value;
-    //     // // console.log(mod[i].price)
-    //     // // mod.price = e.target.value;
-    //     // setMods(mod);
-
-    // }
-
-    const handleChange = (e) => setMods({
-        ...mods,
-        [e.target.name]: e.target.value,
-    });
+    const handleChange = (e) => {
+        const mod = [...mods];
+        mod[e.target.dataset.idx][e.target.className] = e.target.value;
+        setMods(mod);
+    }
 
     const handleAdd = () => {
-        const mod = [...mods];
-        mod.push({ name: '', price: '' });
-        setMods(mod);
+        setMods([...mods, {...newMod}]);
     }
 
     const handleRemove = (i) => {
@@ -28,8 +19,6 @@ const Modifications = () => {
         mod.splice(i, 1);
         setMods(mod);
     }
-
-    console.log(mods)
 
     return (
         <div className="ingredientsContainer">
@@ -44,30 +33,25 @@ const Modifications = () => {
                         <label>Name</label>
                         <input
                         type="text"
-                        value={mod.name}
+                        value={mods[index].name}
+                        data-idx={index}
                         name="name"
+                        className="name"
                         onChange={handleChange}
                         />
                         <label>Price</label>
                         <input
-                        type="text"
+                        type="number"
                         name="price"
-                        value={mod.price}
+                        className="price"
+                        data-idx={index}
+                        value={mods[index].price}
                         onChange={handleChange}
                         />
                         <button type="button" onClick={() => handleRemove(index)}>Remove</button>
                     </div>
                 )
             })}
-
-
-
-
-
-            {/* <label>Ingredient</label>
-            <input type="text" name="ingredient"></input>
-            <label>Price</label>
-            <input type="text" name="price"></input> */}
 
         </div>
     );
