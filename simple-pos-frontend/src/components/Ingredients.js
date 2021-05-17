@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const Ingredients = () => {
     const newIngredient = { name: '' };
-    let [ingredients, setIngredients] = useState([{ name: '' }])
+    let [ingredients, setIngredients] = useState([{...newIngredient}])
 
     const handleChange = (i, e) => {
         const ingredient = [...ingredients];
@@ -20,7 +20,6 @@ const Ingredients = () => {
         setIngredients(ingredient);
     }
 
-    console.log(ingredients)
     return (
         <div className="ingredientsContainer">
             
