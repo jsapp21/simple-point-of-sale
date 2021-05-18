@@ -1,12 +1,19 @@
 const initialState = {
-    category: []
-
+    categories: [],
+    names: [],
+    descriptions: [],
+    prices: []
 };
 
 export const productReducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'ADD_PRODUCT':
+        case 'POST_PRODUCT':
             return state
+        case 'ADD_CATEGORY':
+            return {
+                ...state,
+                categories: [...state.categories, action.category]
+            }
         default:
             return state
     }
