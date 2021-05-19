@@ -8,12 +8,15 @@ class CategoriesController < ApplicationController
     end 
 
     def create
-        # not sure if I need category in array - we will find out
-        params[:category].each do |x|
-            @category = Category.create(name: x[:name])
-        end 
+        category = Category.find_or_create_by(category_params)
 
-        render json: @category
+        render json: category
+    end
+
+    private
+
+    def category_params
+        params.require(:category).permit(:name)
     end
 
 
