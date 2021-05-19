@@ -2,17 +2,19 @@ class CategoriesController < ApplicationController
     skip_before_action :verify_authenticity_token
 
     def index
-        byebug
-        categories = Categories.all 
+        categories = Category.all 
 
         render json: categories
     end 
 
     def create
-        byebug
-        category = Categories.create(name: params[:name])
+        # not sure if I need category in array - we will find out
+        params[:category].each do |x|
+            @category = Category.create(name: x[:name])
+        end 
 
-        render json: category
+        render json: @category
     end
+
 
 end
