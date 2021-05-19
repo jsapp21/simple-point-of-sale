@@ -14,7 +14,7 @@ const ProductForm = () => {
     const dispatch = useDispatch();
 
     const [form, setForm] = useState({ 
-        category: [{ name: '' }],
+        category: { name: '' },
         product: {},
     })
 
@@ -22,6 +22,8 @@ const ProductForm = () => {
         e.preventDefault()
         dispatch(postProduct(form))
     }
+
+    
 
     return (
         <div>
