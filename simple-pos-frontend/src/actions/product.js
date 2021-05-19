@@ -1,14 +1,12 @@
 export const loadProducts = () => {
     return (dispatch) => {
-
         dispatch({ type: 'FETCH_PRODUCTS' });
     
         fetch('http://localhost:3000/categories/')
-            .then(response => response.json())
-            .then(categories => {
-                console.log(categories)
-               return dispatch({ type: 'LOAD_PRODUCTS', categories });
-            })
+        .then(response => response.json())
+        .then(categories => {
+            return dispatch({ type: 'LOAD_PRODUCTS', categories });
+        })
     }
 }
 

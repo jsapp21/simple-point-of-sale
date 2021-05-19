@@ -13,6 +13,10 @@ export const productReducer = (state = initialState, action) => {
                 categories: [...action.categories]
             }
         case 'ADD_CATEGORY':
+            let idsArr = state.categories.map(c => c.id)
+            if (idsArr.includes(action.category.id)) {
+                return state
+            } 
             return {
                 ...state,
                 categories: [...state.categories, action.category]

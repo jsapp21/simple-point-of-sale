@@ -7,7 +7,6 @@ const Category = ({form, onChange}) => {
 
 
     const handleChange = (e) => {
-
         onChange({
             ...form,
             category: {
