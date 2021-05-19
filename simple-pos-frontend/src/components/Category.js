@@ -10,8 +10,8 @@ const Category = ({form, onChange}) => {
             category: category
         })
     }
+    
     return (
-        
         <div>
             <label>Category</label>
             { form.category.map((category, index) => {

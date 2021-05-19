@@ -23,8 +23,6 @@ const ProductForm = () => {
         dispatch(postProduct(form))
     }
 
-    console.log(form)
-
     return (
         <div>
             <h1>Add Product</h1>

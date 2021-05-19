@@ -4,7 +4,7 @@ export const postProduct = (form) => (dispatch) => {
     const reqObj = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form)
+        body: JSON.stringify({category: form.category})
     }
 
     fetch('http://localhost:3000/categories/', reqObj)
