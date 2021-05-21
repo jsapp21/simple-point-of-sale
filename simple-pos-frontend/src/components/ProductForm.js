@@ -15,7 +15,11 @@ const ProductForm = () => {
 
     const [form, setForm] = useState({ 
         category: { name: '' },
-        product: {},
+        product: {
+            name: '',
+            description: '',
+            price: 0
+        },
     })
 
     const handleSubmit = (e) => {
@@ -23,7 +27,6 @@ const ProductForm = () => {
         dispatch(postProduct(form))
     }
 
-    
 
     return (
         <div>
@@ -31,9 +34,9 @@ const ProductForm = () => {
 
             <form onSubmit={handleSubmit}>
                 <Category form={form} onChange={setForm} />
-                <Product />
-                <Ingredients />
+                <Product form={form} onChange={setForm} />
                 <Size />
+                <Ingredients />
                 <Allergies />
                 <Modifications />
                 <button>Submit</button>

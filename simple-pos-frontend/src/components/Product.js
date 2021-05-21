@@ -1,16 +1,31 @@
 import React from 'react';
 
-const Product = () => {
+const Product = ({form, onChange}) => {
+
+    const handleChange = (e) => {
+        debugger
+        onChange({
+            ...form,
+            product: {
+                // [e.target.name]: e.target.value,
+                name: e.target.value,
+                description: e.target.value,
+                price: e.target.value
+            },
+        })
+    }
+
+    console.log(form.product.name)
 
     return (
         <div>
             
             <label>Name</label>
-            <input type="text" name="name"></input>
+            <input name="name" type="text" value={form.product.name} onChange={handleChange} />
             <label>Description</label>
-            <textarea></textarea>
+            <textarea name="description" value={form.product.description} onChange={handleChange} />
             <label>Price</label>
-            <input type="text" name="price"></input>
+            <input name="price" type="number" value={form.product.price} onChange={handleChange} />
 
         </div>
     );

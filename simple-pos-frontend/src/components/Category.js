@@ -23,7 +23,7 @@ const Category = ({form, onChange}) => {
             <input type="text" list="data" onChange={handleChange} />
                 <datalist id="data">
                     {product.categories.map((category, index) =>
-                        <option key={`${category}-${index}`} value={category.name} />
+                        <option key={`${category}-${index}`} value={category.name}></option>
 
                         // keeping to come back to later, want to add clickable delete Icon to the data list
                         // <option key={`${category}-${index}`}>
