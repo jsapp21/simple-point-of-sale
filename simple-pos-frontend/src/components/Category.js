@@ -6,12 +6,14 @@ const Category = ({form, onChange}) => {
 
     const product = useSelector((state) => state.product);
 
-
     const handleChange = (e) => {
         onChange({
-            ...form,
             category: {
                 name: e.target.value
+            },
+            product: {
+                ...form.product,
+                category_ID: product.category.name.includes(e.target.value) ? product.category.id : product.category[product.category.length - 1].id + 1
             }
         })
     }

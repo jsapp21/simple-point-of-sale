@@ -13,12 +13,15 @@ const ProductForm = () => {
     // const product = useSelector((state) => state.product);
     const dispatch = useDispatch();
 
+
+    // slice this up into seprate state
     const [form, setForm] = useState({ 
         category: { name: '' },
         product: {
             name: '',
             description: '',
-            price: 0
+            price: 0,
+            category_ID: ''
         },
     })
 
@@ -27,11 +30,9 @@ const ProductForm = () => {
         dispatch(postProduct(form))
     }
 
-
     return (
         <div>
             <h1>Add Product</h1>
-
             <form onSubmit={handleSubmit}>
                 <Category form={form} onChange={setForm} />
                 <Product form={form} onChange={setForm} />
@@ -41,8 +42,6 @@ const ProductForm = () => {
                 <Modifications />
                 <button>Submit</button>
             </form>
-
-
         </div>
     );
 }

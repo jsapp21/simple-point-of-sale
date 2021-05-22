@@ -3,19 +3,14 @@ import React from 'react';
 const Product = ({form, onChange}) => {
 
     const handleChange = (e) => {
-        debugger
         onChange({
             ...form,
             product: {
-                // [e.target.name]: e.target.value,
-                name: e.target.value,
-                description: e.target.value,
-                price: e.target.value
+                ...form.product,
+                [e.target.name]: e.target.value
             },
         })
     }
-
-    console.log(form.product.name)
 
     return (
         <div>
