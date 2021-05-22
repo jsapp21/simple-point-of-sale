@@ -1,5 +1,6 @@
 const initialState = {
     categories: [],
+    category_id: 0,
     products: []
 };
 

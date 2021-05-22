@@ -29,7 +29,7 @@ export const postProduct = (form) => (dispatch) => {
     const productObj = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({product: form.product})
+        body: JSON.stringify({ product: form.product })
     }
 
     fetch('http://localhost:3000/categories/', categoryObj)
@@ -39,13 +39,13 @@ export const postProduct = (form) => (dispatch) => {
             return dispatch({ type: 'ADD_CATEGORY', category });
         })
 
-    .then(
-        fetch('http://localhost:3000/products/', productObj)
-        .then(resp => resp.json())
-        .then(product => {
-            console.log(product)
-            return dispatch({ type: 'ADD_NEW_PRODUCT', product });
-        })
-    )
+        .then(
+            fetch('http://localhost:3000/products/', productObj)
+            .then(resp => resp.json())
+            .then(product => {
+                console.log(product)
+                return dispatch({ type: 'ADD_NEW_PRODUCT', product });
+            })
+        )
     
 }

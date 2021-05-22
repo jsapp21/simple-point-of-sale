@@ -20,8 +20,7 @@ const ProductForm = () => {
         product: {
             name: '',
             description: '',
-            price: 0,
-            category_ID: ''
+            price: 0
         },
     })
 
