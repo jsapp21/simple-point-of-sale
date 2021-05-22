@@ -5,10 +5,10 @@ import { loadProducts } from './actions/product';
 
 const App = () => {
 
-    // const product = useSelector((state) => state.product);
-    const dispatch = useDispatch();
-
-    useEffect(() => {
+  const dispatch = useDispatch();
+  
+  // const product = useSelector((state) => state.product);
+  useEffect(() => {
      dispatch(loadProducts())
     });
 

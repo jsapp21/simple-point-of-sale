@@ -15,8 +15,7 @@ export const loadProducts = () => {
         // })
     }
 }
-
-
+ 
 export const postProduct = (form) => (dispatch) => {
     dispatch({ type: 'POST_PRODUCT' });
 
@@ -40,6 +39,7 @@ export const postProduct = (form) => (dispatch) => {
         })
 
         .then(
+
             fetch('http://localhost:3000/products/', productObj)
             .then(resp => resp.json())
             .then(product => {
