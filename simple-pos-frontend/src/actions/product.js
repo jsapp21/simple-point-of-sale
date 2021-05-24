@@ -1,23 +1,26 @@
 export const loadProducts = () => {
     return (dispatch) => {
-        dispatch({ type: 'FETCH_PRODUCTS' });
     
         fetch('http://localhost:3000/categories/')
         .then(resp => resp.json())
         .then(categories => {
-            return dispatch({ type: 'LOAD_ALL_PRODUCTS', categories });
+            dispatch({ type: 'LOAD_ALL_CATEGORIES', categories });
+            return dispatch(loadProductInfo())
         })
+    }
+}
 
-        // fetch('http://localhost:3000/products/')
-        // .then(resp => resp.json())
-        // .then(products => {
-        //     return dispatch({ type: 'LOAD_ALL_PRODUCTS', products });
-        // })
+const loadProductInfo = () => {
+    return (dispatch) => {
+        fetch('http://localhost:3000/products/')
+        .then(resp => resp.json())
+        .then(products => {
+            return dispatch({ type: 'LOAD_ALL_PRODUCTS', products });
+        })
     }
 }
 
 
- 
 export const postProduct = (form) => (dispatch) => {
 
     const categoryObj = {
@@ -43,7 +46,7 @@ const addProductInfo = (form, category) => (dispatch) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ product: {
             ...form.product,
-            category_ID: category.id
+            category_id: category.id
         }})
     }
     

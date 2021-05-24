@@ -6,11 +6,15 @@ const initialState = {
 
 export const productReducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'LOAD_ALL_PRODUCTS':
+        case 'LOAD_ALL_CATEGORIES':
             return {
                 ...state,
                 categories: [...action.categories]
-                // products: [...action.products]
+            }
+        case 'LOAD_ALL_PRODUCTS':
+            return {
+                ...state,
+                products: [...action.products]
             }
         case 'ADD_CATEGORY':
             let idsArr = state.categories.map(c => c.id)

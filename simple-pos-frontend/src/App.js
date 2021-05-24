@@ -7,10 +7,9 @@ const App = () => {
 
   const dispatch = useDispatch();
   
-  // const product = useSelector((state) => state.product);
   useEffect(() => {
      dispatch(loadProducts())
-    });
+  });
 
   return (
     <div>
