@@ -15,37 +15,42 @@ export const loadProducts = () => {
         // })
     }
 }
+
+
  
 export const postProduct = (form) => (dispatch) => {
-    dispatch({ type: 'POST_PRODUCT' });
 
     const categoryObj = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({category: form.category})
     }
-
-    const productObj = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ product: form.product })
-    }
-
+   
     fetch('http://localhost:3000/categories/', categoryObj)
         .then(resp => resp.json())
         .then(category => {
             console.log(category)
-            return dispatch({ type: 'ADD_CATEGORY', category });
+            dispatch({ type: 'ADD_CATEGORY', category });
+            return dispatch(addProductInfo(form, category))
         })
 
-        .then(
+}
 
-            fetch('http://localhost:3000/products/', productObj)
-            .then(resp => resp.json())
-            .then(product => {
-                console.log(product)
-                return dispatch({ type: 'ADD_NEW_PRODUCT', product });
-            })
-        )
+const addProductInfo = (form, category) => (dispatch) => {
+
+    const productObj = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ product: {
+            ...form.product,
+            category_ID: category.id
+        }})
+    }
     
+    fetch('http://localhost:3000/products/', productObj)
+    .then(resp => resp.json())
+    .then(product => {
+        console.log(product)
+        return dispatch({ type: 'ADD_NEW_PRODUCT', product });
+    })
 }
