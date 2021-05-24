@@ -3,7 +3,7 @@ class CreateModifications < ActiveRecord::Migration[6.1]
     create_table :modifications do |t|
       t.string :name
       t.integer :price
-      t.integer :product_ID
+      t.integer :product_id
 
       t.timestamps
     end

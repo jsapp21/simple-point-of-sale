@@ -1,5 +1,6 @@
 class AllergySerializer < ActiveModel::Serializer
-  has_many :products, :ingredients
+  has_many :products
+  has_many :ingredients, :through :products
 
-  attributes :id, :product_id, :name
+  attributes :id, :name, :product_ID
 end

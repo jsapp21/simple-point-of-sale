@@ -1,5 +1,5 @@
 class ModificationSerializer < ActiveModel::Serializer
-  has_many :products
+  belongs_to :product
 
-  attributes :id, :name, :product_id
+  attributes :id, :name, :product_ID
 end
