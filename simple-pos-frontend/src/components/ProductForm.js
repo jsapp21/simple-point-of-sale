@@ -19,10 +19,11 @@ const ProductForm = () => {
         category: { name: '' },
         product: {
             name: '',
-            description: '',
-            price: 0
-        },
-        size: { name: '' }
+            description: ''        },
+        size: { 
+            name: '' ,
+            price: 0.0
+        }
     })
 
     const handleSubmit = (e) => {

@@ -1,9 +1,12 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { filterProduct } from '../actions/category';
 
 const Product = ({form, onChange}) => {
 
     const products = useSelector((state) => state.products);
+    const selectedProduct = useSelector((state) => state.selectedProduct);
+    const dispatch = useDispatch();
 
     const handleChange = (e) => {
         onChange({
@@ -13,7 +16,10 @@ const Product = ({form, onChange}) => {
                 [e.target.name]: e.target.value
             },
         })
+        dispatch(filterProduct(e.target.value));
     }
+
+    let findDescription = products.find(p => p.name === selectedProduct)
     
     return (
         <div>
@@ -21,22 +27,16 @@ const Product = ({form, onChange}) => {
             <label>Name</label>
             {/* <input name="name" type="text" value={form.product.name} onChange={handleChange} /> */}
 
-            <input type="text" list="product" onChange={handleChange} />
+            <input name="name" type="text" list="product" onChange={handleChange} />
                 <datalist id="product">
                     {products.map((product, index) =>
-                    
-                        <option key={`${product}-${index}`} name="name" value={product.name}></option>
-
+                        <option key={`${product}-${index}`} value={product.name}></option>
                     )}
-
                 </datalist>
 
-
-            {/* <label>Description</label>
-            <textarea name="description" value={form.product.description} onChange={handleChange} />
-            <label>Price</label>
-            <input name="price" type="number" value={form.product.price} onChange={handleChange} /> */}
-
+            <label>Description</label>
+            <textarea name="description" value={selectedProduct ? form.product.description = findDescription.description : form.product.description} onChange={handleChange} />
+        
         </div>
     );
 }
