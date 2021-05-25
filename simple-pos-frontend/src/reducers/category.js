@@ -1,4 +1,4 @@
-export const categorySelection = (state = null, action) => {
+export const categorySelection = (state = '', action) => {
     switch (action.type) {
         case 'FILTER_CATEGORY':
             return action.name

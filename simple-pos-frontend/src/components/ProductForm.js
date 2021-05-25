@@ -6,26 +6,25 @@ import Size from './Size';
 import Allergies from './Allergies';
 import Modifications from './Modifications';
 import { postProduct } from '../actions/postProduct';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
-const ProductForm = () => {
-
-    // const product = useSelector((state) => state.product);
-    const dispatch = useDispatch();
-
-
+const ProductForm = () => { 
+    
     // slice this up into seprate state
     const [form, setForm] = useState({ 
         category: { name: '' },
         product: {
             name: '',
-            description: ''        },
+            description: ''        
+        },
         size: { 
             name: '' ,
             price: 0.0
         }
     })
 
+    const dispatch = useDispatch();
+        
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch(postProduct(form))
