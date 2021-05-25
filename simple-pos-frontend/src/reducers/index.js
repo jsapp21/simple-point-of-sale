@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import { productReducer } from './product';
+import { categoryReducer } from './category';
 import { categorySelection } from './category';
+import { productsReducer } from './product';
 
 export default combineReducers({
-    categories: productReducer,
+    categories: categoryReducer,
+    products: productsReducer,
     selectedCategory: categorySelection
 });

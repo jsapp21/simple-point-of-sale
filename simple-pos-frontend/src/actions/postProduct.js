@@ -32,7 +32,6 @@ const addProductInfo = (form, category) => (dispatch) => {
     .then(resp => resp.json())
     .then(product => {
         console.log(product)
-        // return dispatch({ type: 'ADD_NEW_PRODUCT', product });
         return dispatch(loadProducts());
     })
 }

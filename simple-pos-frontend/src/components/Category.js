@@ -23,8 +23,8 @@ const Category = ({form, onChange}) => {
         <div>
             <label>Category</label>
 
-            <input type="text" list="data" onChange={handleChange} />
-                <datalist id="data">
+            <input type="text" list="category" onChange={handleChange} />
+                <datalist id="category">
                     {categories.map((category, index) =>
                     
                         <option key={`${category}-${index}`} value={category.name}></option>

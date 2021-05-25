@@ -4,18 +4,21 @@ export const loadProducts = () => {
         fetch('http://localhost:3000/categories/')
         .then(resp => resp.json())
         .then(categories => {
-            return dispatch({ type: 'LOAD_ALL_CATEGORIES', categories });
-            // return dispatch(loadProductInfo())
+            // console.log(categories)
+            dispatch({ type: 'LOAD_ALL_CATEGORIES', categories });
+            return dispatch(fetchAllProducts());
         })
     }
 }
 
-// const loadProductInfo = () => {
-//     return (dispatch) => {
-//         fetch('http://localhost:3000/products/')
-//         .then(resp => resp.json())
-//         .then(products => {
-//             return dispatch({ type: 'LOAD_ALL_PRODUCTS', products });
-//         })
-//     }
-// }
+const fetchAllProducts = () => {
+    return (dispatch) => {
+
+        fetch('http://localhost:3000/products/')
+        .then(resp => resp.json())
+        .then(products => {
+            // console.log(products)
+            return dispatch({ type: 'LOAD_ALL_PRODUCTS', products });
+        })
+    }
+}
