@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
 import { productReducer } from './product';
+import { categorySelection } from './category';
 
 export default combineReducers({
-    product: productReducer
+    categories: productReducer,
+    selectedCategory: categorySelection
 });

@@ -5,7 +5,7 @@ import Ingredients from './Ingredients';
 import Size from './Size';
 import Allergies from './Allergies';
 import Modifications from './Modifications';
-import { postProduct } from '../actions/product';
+import { postProduct } from '../actions/postProduct';
 import { useDispatch } from 'react-redux'
 
 const ProductForm = () => {
@@ -22,6 +22,7 @@ const ProductForm = () => {
             description: '',
             price: 0
         },
+        size: { name: '' }
     })
 
     const handleSubmit = (e) => {
