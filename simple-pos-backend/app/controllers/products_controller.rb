@@ -8,8 +8,7 @@ class ProductsController < ApplicationController
     end 
 
     def create
-        # byebug
-        product = Product.create(product_params)
+        product = Product.find_or_create_by(product_params)
 
         render json: product
     end
@@ -17,7 +16,7 @@ class ProductsController < ApplicationController
     private
 
     def product_params
-        params.require(:product).permit(:name, :description, :price, :category_id)
+        params.require(:product).permit(:name, :description, :category_id)
     end
 
 end

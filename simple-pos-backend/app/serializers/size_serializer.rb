@@ -1,5 +1,5 @@
 class SizeSerializer < ActiveModel::Serializer
   belongs_to :product
 
-  attributes :id, :name, :product_ID
+  attributes :id, :name, :price, :product_id
 end
