@@ -51,7 +51,6 @@ ActiveRecord::Schema.define(version: 2021_05_12_001748) do
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.integer "price"
     t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -65,6 +64,7 @@ ActiveRecord::Schema.define(version: 2021_05_12_001748) do
 
   create_table "sizes", force: :cascade do |t|
     t.string "name"
+    t.integer "price"
     t.integer "product_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
