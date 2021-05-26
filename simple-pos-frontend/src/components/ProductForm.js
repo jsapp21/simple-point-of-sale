@@ -6,7 +6,7 @@ import Size from './Size';
 import Allergies from './Allergies';
 import Modifications from './Modifications';
 import { postProduct } from '../actions/postProduct';
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 const ProductForm = () => { 
     

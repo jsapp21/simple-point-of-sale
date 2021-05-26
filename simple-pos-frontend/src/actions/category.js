@@ -6,7 +6,7 @@ export const filterCategory = (name) => {
 
 export const filterProduct = (product) => {
     return (dispatch) => {
-        console.log(product)
+        // console.log(product)
         dispatch({ type: 'FILTER_NAME', product })
     }
 }

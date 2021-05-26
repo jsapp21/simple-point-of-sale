@@ -18,7 +18,9 @@ const Product = ({form, onChange}) => {
             },
         })
     }
+    
     dispatch(filterProduct(form.product.name));
+    // this dispatches on every re-render
 
     let productNames = products.filter(p => p.category.name.toLowerCase().includes(selectedCategory.toLowerCase()))
 
