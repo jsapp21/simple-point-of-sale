@@ -11,12 +11,12 @@ export const categoryReducer = (state = [], action) => {
     switch (action.type) {
         case 'LOAD_ALL_CATEGORIES':
             return action.categories
-        case 'ADD_CATEGORY':
-            let idsArr = state.map(c => c.id)
-            if (idsArr.includes(action.category.id)) {
-                return state
-            } 
-            return [...state.categories, action.category]
+        // case 'ADD_CATEGORY':
+        //     let idsArr = state.map(c => c.id)
+        //     if (idsArr.includes(action.category.id)) {
+        //         return state
+        //     } 
+        //     return [...state.categories, action.category]
         default:
             return state
     }

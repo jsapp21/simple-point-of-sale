@@ -11,6 +11,7 @@ import { useDispatch } from 'react-redux'
 const ProductForm = () => { 
     
     // slice this up into seprate state
+    const [categoryForm, setcategoryForm] = useState({ })
     const [form, setForm] = useState({ 
         category: { name: '' },
         product: {

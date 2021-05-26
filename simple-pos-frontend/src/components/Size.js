@@ -3,13 +3,15 @@ import React from 'react';
 const Size = () => {
 
     return (
-        <div>
+        <div className="sizeContainer">
             
-            <label>Size</label>
-            <input type="text" name="size"></input>
+            <label>Size
+                <input type="text" name="size" />
+            </label>
 
-            {/* <label>Price</label>
-            <input name="price" type="number" value={null} onChange={null} /> */}
+            <label>Price
+                <input type="number" name="price" step="0.01"/> 
+            </label>
 
         </div>
     );

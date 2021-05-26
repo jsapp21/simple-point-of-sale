@@ -17,31 +17,34 @@ const Product = ({form, onChange}) => {
                 [e.target.name]: e.target.value
             },
         })
+        dispatch(filterProduct(form.product.name));
     }
     
-    dispatch(filterProduct(form.product.name));
-    // this dispatches on every re-render
+    // if dispatch is here it this dispatches on every re-render
+    // if you click on textare descrptions displays w/ dispatch in handleChange
 
     let productNames = products.filter(p => p.category.name.toLowerCase().includes(selectedCategory.toLowerCase()))
 
     const filterDesc = () => {
-        let k = productNames.filter(p => p.name.toLowerCase().includes(selectedProduct.toLowerCase()))
-        let x = k.find(k => k.description)
-
-        if (selectedProduct.length > 0){
-            return x.description
+        if (products.length < 1){
+            return form.product.description
         } else {
-            return ''
-        }
 
+            let k = productNames.filter(p => p.name.toLowerCase().includes(selectedProduct.toLowerCase()))
+            let x = k.find(k => k.description)
+    
+            if (selectedProduct.length > 0){
+                return x.description
+            } else {
+                return ''
+            }
+        }
     }
     
     return (
         <div>
             
             <label>Name</label>
-            {/* <input name="name" type="text" value={form.product.name} onChange={handleChange} /> */}
-
             <input name="name" type="text" list="product" onChange={handleChange} />
                 <datalist id="product">
                     {productNames.map((product, index) =>
