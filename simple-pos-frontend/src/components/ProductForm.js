@@ -13,7 +13,9 @@ const ProductForm = () => {
     // slice this up into seprate state
     const [category, setCategory] = useState({ category: { name: '' } })
     const [product, setProduct] = useState({ product: { name: '', description: '' } })
-    const [size, setSize] = useState({ size: { name: '', price: 0.00 } })
+    
+    const newSize = { name: '', price: 0.00 }; 
+    const [size, setSize] = useState({ size: [{...newSize}] })
     // const [form, setForm] = useState({ 
     //     category: { name: '' },
     //     product: {
@@ -26,6 +28,8 @@ const ProductForm = () => {
     //     }
     // })
     // form={form} onChange={setForm}
+
+    console.log(size)
 
     const dispatch = useDispatch();
         
@@ -40,7 +44,7 @@ const ProductForm = () => {
             <form onSubmit={handleSubmit}>
                 <Category category={category} onChange={setCategory} />
                 <Product product={product} category={category} onChange={setProduct} />
-                <Size size={size} onChange={setSize} />
+                <Size size={size} newSize={newSize} onChange={setSize} />
                 <Ingredients />
                 <Allergies />
                 <Modifications />

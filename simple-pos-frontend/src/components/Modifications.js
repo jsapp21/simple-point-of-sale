@@ -20,6 +20,8 @@ const Modifications = () => {
         setMods(mod);
     }
 
+    // console.log(mods)
+
     return (
         <div className="ingredientsContainer">
             

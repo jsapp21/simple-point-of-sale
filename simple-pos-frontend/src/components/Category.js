@@ -1,17 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-// import { filterCategory } from '../actions/category';
 // import Icon from './Icon'
 
 const Category = ({category, onChange}) => {
 
     const categories = useSelector((state) => state.categories);
-    // const dispatch = useDispatch();
 
     const handleChange = (e) => {
         onChange({ category: { name: e.target.value } })
-
-        // dispatch(filterCategory(e.target.value))
     }
     
     return (
