@@ -30,7 +30,7 @@ const Modifications = () => {
             {mods.map((mod, index) => {
                 return (
                     <div key={`${mod}-${index}`}>
-                        <label>Name</label>
+                        <label>Ingredient</label>
                         <input
                         type="text"
                         value={mods[index].name}

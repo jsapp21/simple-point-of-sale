@@ -11,37 +11,40 @@ import { useDispatch } from 'react-redux'
 const ProductForm = () => { 
     
     // slice this up into seprate state
-    const [categoryForm, setcategoryForm] = useState({ })
-    const [form, setForm] = useState({ 
-        category: { name: '' },
-        product: {
-            name: '',
-            description: ''        
-        },
-        size: { 
-            name: '' ,
-            price: 0.0
-        }
-    })
+    const [category, setCategory] = useState({ category: { name: '' } })
+    const [product, setProduct] = useState({ product: { name: '', description: '' } })
+    const [size, setSize] = useState({ size: { name: '', price: 0.00 } })
+    // const [form, setForm] = useState({ 
+    //     category: { name: '' },
+    //     product: {
+    //         name: '',
+    //         description: ''        
+    //     },
+    //     size: { 
+    //         name: '' ,
+    //         price: 0.0
+    //     }
+    // })
+    // form={form} onChange={setForm}
 
     const dispatch = useDispatch();
         
     const handleSubmit = (e) => {
         e.preventDefault()
-        dispatch(postProduct(form))
+        dispatch(postProduct(category, product, size))
     }
 
     return (
         <div>
             <h1>Add Product</h1>
             <form onSubmit={handleSubmit}>
-                <Category form={form} onChange={setForm} />
-                <Product form={form} onChange={setForm} />
-                <Size />
+                <Category category={category} onChange={setCategory} />
+                <Product product={product} category={category} onChange={setProduct} />
+                <Size size={size} onChange={setSize} />
                 <Ingredients />
                 <Allergies />
                 <Modifications />
-                <button>Submit</button>
+                <button type="submit">Submit</button>
             </form>
         </div>
     );

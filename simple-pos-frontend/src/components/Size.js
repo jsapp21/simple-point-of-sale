@@ -10,7 +10,7 @@ const Size = () => {
             </label>
 
             <label>Price
-                <input type="number" name="price" step="0.01"/> 
+                <input type="number" name="price" step="0.10"/> 
             </label>
 
         </div>

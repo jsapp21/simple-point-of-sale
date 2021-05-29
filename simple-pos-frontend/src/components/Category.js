@@ -1,22 +1,17 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { filterCategory } from '../actions/category';
+import { useSelector } from 'react-redux';
+// import { filterCategory } from '../actions/category';
 // import Icon from './Icon'
 
-const Category = ({form, onChange}) => {
+const Category = ({category, onChange}) => {
 
     const categories = useSelector((state) => state.categories);
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
     const handleChange = (e) => {
-        onChange({
-            ...form,
-            category: {
-                name: e.target.value
-            }
-        })
+        onChange({ category: { name: e.target.value } })
 
-        dispatch(filterCategory(e.target.value))
+        // dispatch(filterCategory(e.target.value))
     }
     
     return (

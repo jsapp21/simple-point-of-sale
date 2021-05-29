@@ -12,7 +12,7 @@ export const postProduct = (form) => (dispatch) => {
     .then(resp => resp.json())
     .then(category => {
         console.log(category)
-        dispatch(loadProducts());
+        // dispatch(loadProducts());
         return dispatch(addProductInfo(form, category))
     })
 }
