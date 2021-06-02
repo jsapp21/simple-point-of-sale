@@ -55,22 +55,9 @@ const addSizes = (product, size) => (dispatch) => {
         .then(size => {
             console.log(size)
         })
+
     }
     
     return dispatch(loadProducts());
-    // const sizeObj = {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify({ size: {
-    //         ...size.size,
-    //         product_id: product.id
-    //     }})
-    // }
-    
-    // fetch('http://localhost:3000/sizes/', sizeObj)
-    // .then(resp => resp.json())
-    // .then(size => {
-    //     console.log(size)
-    //     return dispatch(loadProducts());
-    // })
+
 }

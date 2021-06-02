@@ -1,23 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const Ingredients = () => {
-    const newIngredient = { name: '' };
-    let [ingredients, setIngredients] = useState([{...newIngredient}])
-
+const Ingredients = ({newIngredient, ingredient, onChange}) => {
+    
+    
     const handleChange = (i, e) => {
-        const ingredient = [...ingredients];
-        ingredient[i].name = e.target.value;
-        setIngredients(ingredient);
+        const ingredientArr = ingredient.ingredient;
+        ingredientArr[i].name = e.target.value;
+        onChange({ ingredient: [...ingredientArr] });
     }
 
     const handleAdd = () => {
-        setIngredients([...ingredients, newIngredient]);
+        onChange({ ingredient: [...ingredient.ingredient, {...newIngredient}] });
     }
 
     const handleRemove = (i) => {
-        const ingredient = [...ingredients];
+        const ingredientArr = ingredient.ingredient;
         ingredient.splice(i, 1);
-        setIngredients(ingredient);
+        onChange({ ingredient: [...ingredientArr]});
     }
 
     return (
@@ -26,7 +25,7 @@ const Ingredients = () => {
             <label>Ingredients</label>
             <button type="button" onClick={handleAdd}>Add Ingredient</button>
 
-            {ingredients.map((ingredient, index) => {
+            {ingredient.ingredient.map((ingredient, index) => {
                 return (
                     <div key={`${ingredient}-${index}`}>
                         <input

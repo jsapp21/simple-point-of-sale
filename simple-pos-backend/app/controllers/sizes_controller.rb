@@ -20,4 +20,3 @@ class SizesController < ApplicationController
     end
 
 end
-# need to fix the tables price to a float

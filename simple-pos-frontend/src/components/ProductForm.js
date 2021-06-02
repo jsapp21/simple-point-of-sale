@@ -10,12 +10,15 @@ import { useDispatch } from 'react-redux'
 
 const ProductForm = () => { 
     
-    // slice this up into seprate state
     const [category, setCategory] = useState({ category: { name: '' } })
     const [product, setProduct] = useState({ product: { name: '', description: '' } })
     
     const newSize = { name: '', price: 0.00 }; 
     const [size, setSize] = useState({ size: [{...newSize}] })
+
+    const newIngredient = { name: '' };
+    const [ingredient, setIngredient] = useState({ ingredient: [{...newIngredient}] })
+
     // const [form, setForm] = useState({ 
     //     category: { name: '' },
     //     product: {
@@ -29,7 +32,7 @@ const ProductForm = () => {
     // })
     // form={form} onChange={setForm}
 
-    console.log(size)
+
 
     const dispatch = useDispatch();
         
@@ -45,7 +48,7 @@ const ProductForm = () => {
                 <Category category={category} onChange={setCategory} />
                 <Product product={product} category={category} onChange={setProduct} />
                 <Size size={size} newSize={newSize} onChange={setSize} />
-                <Ingredients />
+                <Ingredients ingredient={ingredient} newIngredient={newIngredient} onChange={setIngredient} />
                 <Allergies />
                 <Modifications />
                 <button type="submit">Submit</button>

@@ -6,12 +6,3 @@ export const productsReducer = (state = [], action) => {
             return state
     }
 };
-
-export const productSelection = (state = '', action) => {
-    switch (action.type) {
-        case 'FILTER_NAME':
-            return action.product
-        default:
-            return state
-    }
-};
