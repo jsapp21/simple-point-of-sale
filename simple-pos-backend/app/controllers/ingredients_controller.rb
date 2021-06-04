@@ -8,6 +8,7 @@ class IngredientsController < ApplicationController
     end
 
     def create
+        # byebug
         ingredient = Ingredient.create(ingredient_params)
 
         render json: ingredient

@@ -12,6 +12,7 @@ Things you may want to cover:
 * Configuration
 
 * Database creation
+- MySQL: first run mysql.server start, then rail s 
 
 * Database initialization
 
