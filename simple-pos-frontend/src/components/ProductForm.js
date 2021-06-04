@@ -38,7 +38,7 @@ const ProductForm = () => {
         
     const handleSubmit = (e) => {
         e.preventDefault()
-        dispatch(postProduct(category, product, size))
+        dispatch(postProduct(category, product, size, ingredient))
     }
 
     return (
